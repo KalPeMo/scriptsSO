@@ -224,15 +224,79 @@ void cuartoPunto(int fd){
 }
 
 void quintoPunto(int fd){
+    printf("\n5. Destuir completamente la lista o la pila");
+    int ans;
+    printf("\n 1 Destruir lista 2 Destruir pila\n");
+    scanf("%d", &ans);
+    if(ans == 1){
+        send_empty_command(fd, BRIDGE_DESTROY_L);
+        read_all_messages_list(fd);
+        printf("\nDestruida la lista\n");
+    } else if (ans == 2){
+        send_empty_command(fd, BRIDGE_DESTROY_S);
+        read_all_messages_stack(fd);
+        printf("\nDestruida la pila\n");
+    } else {
+        printf("\nError, ingrese valores correctos\n");
+    }
 }
-void sextoPunto(int fd){
+
+void sextoPunto(int fd)
+{
+    printf("\n6. Invertir la lista");
+    printf("\nAgregar items\n");
+    char ans[100];
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nEscriba la palabra que desea adicionar o SALIR\n");
+        scanf("%s", ans);
+        printf("\nEntrada: %s\n", ans);
+        if(strcmp(ans, "SALIR") != 0){
+            strcat(ans,"\n");
+            write_message(fd, BRIDGE_W_L, ans);
+        }
+    }
+    printf("\nLa lista invertida es la siguiente:\n");
+    send_empty_command(fd, BRIDGE_INVERT_L);
+    read_all_messages_list(fd);
 }
-void septimoPunto(int fd){
+
+void septimoPunto(int fd)
+{
+    printf("\n7. Concatenar lista");
+    printf("\nAgregar los primeros elementos a la lista\n");
+    char ans[100];
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nEscriba la palabra que desea agregar a la lista o SALIR\n");
+        scanf("%s", ans);
+        printf("\nEntrada: %s\n", ans);
+        if(strcmp(ans, "SALIR") != 0){
+            strcat(ans,"\n");
+            write_message(fd, BRIDGE_W_L, ans);
+        }
+    }
+    printf("\nAgregar elementos a la segunda lista\n");
+    ans[0] = 'n';
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nEscriba la palabra que desea agregar o SALIR\n");
+        scanf("%s", ans);
+        printf("\nEntrada: %s\n", ans);
+        if(strcmp(ans, "SALI9R") != 0){
+            // CREATE LIST ITEMS LOGIC
+            strcat(ans,"\n");
+            write_message(fd, BRIDGE_W_HIGH_PRIOR_Q, ans);
+        }
+    }
+    printf("\nListas concatenadas: \n");
+    send_empty_command(fd, BRIDGE_CONCAT_L);
+    read_all_messages_list(fd);
 }
+
 void octavoPunto(int fd){
 }
+
 void novenoPunto(int fd){
 }
+
 void decimoPunto(int fd){
 }
 
