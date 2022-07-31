@@ -190,7 +190,39 @@ int tercerPunto(int fd){
 }
 
 void cuartoPunto(int fd){
+    printf("\n4. Cola de prioridades alta, media, baja");
+    printf("\nAgrega items\n");
+    char ans[100];
+    int x = 0;
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nIngrese la palabra que desea agregar a la cola o SALIR\n");
+        scanf("%s", ans);
+        printf("\nIngresar: %s\n", ans);
+        if(strcmp(ans, "SALIR") == 0){
+            break;
+        }
+        printf("\nElija la prioridad tecleando el numero\n");
+        printf(" 1. ALTA\n 2. MEDIA\n 3. BAJA\n ");
+        scanf("%d", &x);
+        switch(x){
+            case 1:
+                write_message(fd, BRIDGE_W_HIGH_PRIOR_Q, ans);
+                printf("\n%s El elemento se agrego correctamente a la cola de prioridad ALTA\n", &ans[0]);
+                break;
+            case 2:
+                write_message(fd, BRIDGE_W_MIDDLE_PRIOR_Q, ans);
+                printf("\n%s El elemento se agrego correctamente a la cola de prioridad MEDIA", &ans[0]);
+                break;
+            case 3:
+                write_message(fd, BRIDGE_W_LOW_PRIOR_Q, ans);
+                printf("\n%s El elemento se agrego correctamente a la cola de prioridad BAJA", &ans[0]);
+                break;
+        }
+    }
+    printf("\nA continuacion se presenta los items en orden de prioridad\n");
+    read_all_queue_messages(fd);
 }
+
 void quintoPunto(int fd){
 }
 void sextoPunto(int fd){
