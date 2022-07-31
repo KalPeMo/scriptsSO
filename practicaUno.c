@@ -195,7 +195,7 @@ void cuartoPunto(int fd){
     char ans[100];
     int x = 0;
     while(strcmp(ans, "SALIR") != 0){
-        printf("\nIngrese la palabra que desea agregar a la cola o SALIR\n");
+        printf("\nEscriba la palabra que va a agregar a la cola o SALIR\n");
         scanf("%s", ans);
         printf("\nIngresar: %s\n", ans);
         if(strcmp(ans, "SALIR") == 0){
@@ -247,7 +247,7 @@ void sextoPunto(int fd)
     printf("\nAgregar items\n");
     char ans[100];
     while(strcmp(ans, "SALIR") != 0){
-        printf("\nEscriba la palabra que desea adicionar o SALIR\n");
+        printf("\nEscriba la palabra que va a agregar o SALIR\n");
         scanf("%s", ans);
         printf("\nEntrada: %s\n", ans);
         if(strcmp(ans, "SALIR") != 0){
@@ -266,7 +266,7 @@ void septimoPunto(int fd)
     printf("\nAgregar los primeros elementos a la lista\n");
     char ans[100];
     while(strcmp(ans, "SALIR") != 0){
-        printf("\nEscriba la palabra que desea agregar a la lista o SALIR\n");
+        printf("\nEscriba la palabra que va a agregar a la lista o SALIR\n");
         scanf("%s", ans);
         printf("\nEntrada: %s\n", ans);
         if(strcmp(ans, "SALIR") != 0){
@@ -277,7 +277,7 @@ void septimoPunto(int fd)
     printf("\nAgregar elementos a la segunda lista\n");
     ans[0] = 'n';
     while(strcmp(ans, "SALIR") != 0){
-        printf("\nEscriba la palabra que desea agregar o SALIR\n");
+        printf("\nEscriba la palabra que va a agregar o SALIR\n");
         scanf("%s", ans);
         printf("\nEntrada: %s\n", ans);
         if(strcmp(ans, "SALI9R") != 0){
@@ -292,12 +292,69 @@ void septimoPunto(int fd)
 }
 
 void octavoPunto(int fd){
+    printf("\n8. Rotar la lista n veces a la derecha");
+    printf("\n Agrega algunos elementos a la primera lista\n");
+    char ans[100]; 
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nEscriba la palabra que va a agregar agregar o SALIR\n");
+        scanf("%s", ans);
+        printf("\nEntrada: %s\n", ans);
+        if(strcmp(ans, "SALIR") != 0){
+            // CREATE LIST ITEMS LOGIC
+            strcat(ans,"\n");
+            write_message(fd, BRIDGE_W_L, ans);
+        }
+    }
+    printf("Lista rotada :\n");
+    send_empty_command(fd, BRIDGE_ROTATE_L);
+    read_all_messages_list(fd);
 }
 
 void novenoPunto(int fd){
+    printf("\n9. Limpiar lista - borrando elementos identicos");
+    printf("\nAgrege elementos a la primera lista\n");
+    char ans[100]; 
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nEscriba la palabra que va a agregar o SALIR\n");
+        scanf("%s", ans);
+        printf("\nEntrada: %s\n", ans);
+        if(strcmp(ans, "SALIR") != 0){
+            strcat(ans,"\n");
+            write_message(fd, BRIDGE_CLEAN_L, ans);
+        }
+    }
+    printf("\nLista sin elementos identicos:\n");
+    read_all_messages_list(fd);
 }
 
 void decimoPunto(int fd){
+    printf("\n10. Mayor valor de una lista segun ASCII");
+    printf("\nAgregar elemento a la primera lista\n");
+    char ans[100];
+    while(strcmp(ans, "SALIR") != 0){
+        printf("\nEscriba la palabra que va a agregar o SALIR\n");
+        scanf("%s", ans);
+        printf("\nEntrada: %s\n", ans);
+        if(strcmp(ans, "SALIR") != 0){
+            write_message(fd, BRIDGE_CLEAN_L, ans);
+        }
+    }
+    
+    char  major[100];
+    read_message(fd, BRIDGE_R_L, major);
+   
+    do{
+        char input[100];
+        read_message(fd, BRIDGE_R_L, input);
+        
+        if(strcmp(input,major) > 0)
+        {
+
+            memcpy(major, input,strlen(input)+1);
+
+        }
+    }while(send_empty_command(fd, BRIDGE_STATE_L)!=0);
+    printf("\nEl mayor valor de la lista es: %s\n", major);
 }
 
 void onceavoPunto(int fd){
