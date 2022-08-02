@@ -167,7 +167,7 @@ void primerPunto(int fd)
 
 void segundoPunto(int fd)
 {
-    printf("Esta opción todavía no está disponible!")
+    printf("Esta opción todavía no está disponible!");
 }
 
 int tercerPunto(int fd)
