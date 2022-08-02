@@ -167,6 +167,7 @@ void primerPunto(int fd)
 
 void segundoPunto(int fd)
 {
+    printf("Esta opción todavía no está disponible!")
 }
 
 int tercerPunto(int fd)
@@ -496,21 +497,6 @@ void menu(int fd)
             break;
         case 10:
             decimoPunto(fd);
-            break;
-        case 11:
-            onceavoPunto(fd);
-            break;
-        case 12:
-            doceavoPunto(fd);
-            break;
-        case 13:
-            treceavoPunto(fd);
-            break;
-        case 14:
-            catorceavoPunto(fd);
-            break;
-        case 15:
-            quinceavoPunto(fd);
             break;
         default:
             if (x != 0)
