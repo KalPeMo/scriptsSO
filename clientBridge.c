@@ -445,7 +445,7 @@ void menu(int fd)
         printf("\n2. Baraja de lineas");
         printf("\n3. Balancear signos de agruacion () {}");
         printf("\n4. Cola de rioridades: alta, media, baja");
-        printf("\n5. Destruir lista enlazada);
+        printf("\n5. Destruir lista enlazada");
         printf("\n6. Invertir orden de los nodos");
         printf("\n7. Concatenar listas");
         printf("\n8. Rotacion a la derecha de la lista");
