@@ -528,3 +528,22 @@ void menu(int fd)
         printf("%d\n",x);
     }
 }
+
+int main(int argc, char *argv[])
+{
+
+    const char *file_name = "/dev/bridge"; // used by ioctl
+    int fd;
+
+    fd = open(file_name, O_RDWR);
+    if (fd == -1)
+    {
+        perror("Bridge ioctl file open");
+        return 2;
+    }
+
+    menu(fd);
+
+    close(fd);
+    return 0;
+}
