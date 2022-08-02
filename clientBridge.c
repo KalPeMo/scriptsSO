@@ -432,3 +432,99 @@ void decimoPunto(int fd)
     } while (send_empty_command(fd, BRIDGE_STATE_L) != 0);
     printf("\nEl mayor valor de la lista es: %s\n", major);
 }
+
+void menu(int fd)
+{
+    int x = 1;
+    while (x != 0)
+    {
+        printf("\n MENU");
+        printf("\n0. Exit");
+        printf("\nIngresar el numero que desea probar del 1 al 10:");
+        printf("\n1. Reversar texto");
+        printf("\n2. Baraja de lineas");
+        printf("\n3. Balancear signos de agruacion () {}");
+        printf("\n4. Cola de rioridades: alta, media, baja");
+        printf("\n5. Destruir lista enlazada);
+        printf("\n6. Invertir orden de los nodos");
+        printf("\n7. Concatenar listas");
+        printf("\n8. Rotacion a la derecha de la lista");
+        printf("\n9. Limpiar lista");
+        printf("\n10. Mayor valor de la lista por ASCII");
+        
+        
+        scanf("%d",&x);
+        switch(x){
+        case 1:
+            primerPunto(fd);
+            break;
+        case 2:
+            segundoPunto(fd); // revisar el codigo
+            break;
+        case 3:
+            int result = tercerPunto(fd);
+            if (result == 1)
+            {
+                printf("\nEl archivo esta balanceado");
+            }
+            else if (result == 0)
+            {
+                printf("\nEl archivo esta sin balancar");
+            }
+            else if (result == -1)
+            {
+                printf("\nERROR\n");
+            }
+            break;
+        case 4:
+            cuartoPunto(fd);
+            break;
+        case 5:
+            quintoPunto(fd);
+            break;
+        case 6:
+            sextoPunto(fd);
+            break;
+        case 7:
+            septimoPunto(fd);
+            break;
+        case 8:
+            octavoPunto(fd);
+            break;
+        case 9:
+            novenoPunto(fd);
+            break;
+        case 10:
+            decimoPunto(fd);
+            break;
+        case 11:
+            onceavoPunto(fd);
+            break;
+        case 12:
+            doceavoPunto(fd);
+            break;
+        case 13:
+            treceavoPunto(fd);
+            break;
+        case 14:
+            catorceavoPunto(fd);
+            break;
+        case 15:
+            quinceavoPunto(fd);
+            break;
+        default:
+            if (x != 0)
+            {
+                printf("\nError: error de segmentacion: /\n");
+            }
+            else
+            {
+                printf("\nBye. \n");
+            }
+            break;
+        
+        }
+        printf("\nThe selected option was:");
+        printf("%d\n",x);
+    }
+}
