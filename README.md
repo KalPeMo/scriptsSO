@@ -1,4 +1,4 @@
-# Primer Laboratio Sistemas Operativos
+# Primer Laboratorio Sistemas Operativos
 
 ![App Menu Screenshot](./assets/app_menu_screenshot.png 'App Menu Screenshot')
 
