@@ -440,8 +440,8 @@ void menu(int fd)
     while (x != 0)
     {
         printf("\n MENU");
-        printf("\n0. Exit");
         printf("\nIngresar el numero que desea probar del 1 al 10:");
+        printf("\n0. Exit");
         printf("\n1. Reversar texto");
         printf("\n2. Baraja de lineas");
         printf("\n3. Balancear signos de agruacion () {}");
@@ -452,7 +452,7 @@ void menu(int fd)
         printf("\n8. Rotacion a la derecha de la lista");
         printf("\n9. Limpiar lista");
         printf("\n10. Mayor valor de la lista por ASCII");
-        
+        printf("\n\n");
         
         scanf("%d",&x);
         switch(x){
