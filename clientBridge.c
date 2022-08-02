@@ -441,18 +441,18 @@ void menu(int fd)
     {
         printf("\n MENU");
         printf("\n ---------------------------------------------------------\n");
-        printf("\nIngresar el numero que desea probar del 1 al 10:");
-        printf("\n0. Exit");
-        printf("\n1. Reversar texto");
-        printf("\n2. Baraja de lineas");
-        printf("\n3. Balancear signos de agruacion () {}");
-        printf("\n4. Cola de rioridades: alta, media, baja");
-        printf("\n5. Destruir lista enlazada");
-        printf("\n6. Invertir orden de los nodos");
-        printf("\n7. Concatenar listas");
-        printf("\n8. Rotacion a la derecha de la lista");
-        printf("\n9. Limpiar lista");
-        printf("\n10. Mayor valor de la lista por ASCII");
+        printf("\n Ingresar el numero que desea probar del 1 al 10:");
+        printf("\n 0. Exit");
+        printf("\n 1. Reversar texto");
+        printf("\n 2. Baraja de lineas");
+        printf("\n 3. Balancear signos de agruacion () {}");
+        printf("\n 4. Cola de rioridades: alta, media, baja");
+        printf("\n 5. Destruir lista enlazada");
+        printf("\n 6. Invertir orden de los nodos");
+        printf("\n 7. Concatenar listas");
+        printf("\n 8. Rotacion a la derecha de la lista");
+        printf("\n 9. Limpiar lista");
+        printf("\n 10. Mayor valor de la lista por ASCII");
         printf("\n\n");
         
         scanf("%d",&x);
@@ -506,12 +506,12 @@ void menu(int fd)
             }
             else
             {
-                printf("\nFin del Programa. \n");
+                printf("\n Fin del Programa. \n");
             }
             break;
         
         }
-        printf("\nThe selected option was:");
+        printf("\n The selected option was:");
         printf("%d\n",x);
     }
 }
