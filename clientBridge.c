@@ -440,6 +440,7 @@ void menu(int fd)
     while (x != 0)
     {
         printf("\n MENU");
+        printf("\n ---------------------------------------------------------\n")
         printf("\nIngresar el numero que desea probar del 1 al 10:");
         printf("\n0. Exit");
         printf("\n1. Reversar texto");
@@ -505,7 +506,7 @@ void menu(int fd)
             }
             else
             {
-                printf("\nBye. \n");
+                printf("\nFin del Programa. \n");
             }
             break;
         
