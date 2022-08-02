@@ -441,7 +441,7 @@ void menu(int fd)
     {
         printf("\n MENU");
         printf("\n ---------------------------------------------------------\n");
-        printf("\n Ingresar el numero que desea probar del 1 al 10:");
+        printf("\n Ingresar el numero que desea probar del 1 al 10:\n");
         printf("\n 0. Exit");
         printf("\n 1. Reversar texto");
         printf("\n 2. Baraja de lineas");
@@ -511,8 +511,7 @@ void menu(int fd)
             break;
         
         }
-        printf("\n The selected option was:");
-        printf("%d\n",x);
+        printf("\n The selected option was: %d\n", x);
     }
 }
 
